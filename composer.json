@@ -1,0 +1,53 @@
+{
+    "name": "dsginnosource/lam-package",
+    "description": "The package component to the Laravel Application Manager",
+    "keywords": [
+        "dsginnosource",
+        "lam-package"
+    ],
+    "homepage": "https://github.com/dsginnosource/lam-package",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "InnoSource DSG",
+            "email": "dsg@innosource.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dsginnosource\\LamPackage\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dsginnosource\\LamPackage\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dsginnosource\\LamPackage\\LamPackageServiceProvider"
+            ],
+            "aliases": {
+                "LamPackage": "Dsginnosource\\LamPackage\\LamPackageFacade"
+            }
+        }
+    }
+}
