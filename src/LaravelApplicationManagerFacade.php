@@ -1,13 +1,13 @@
 <?php
 
-namespace Dsginnosource\LamPackage;
+namespace InnoSource\LaravelApplicationManager;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Dsginnosource\LamPackage\Skeleton\SkeletonClass
+ * @see \InnoSource\LaravelApplicationManager
  */
-class LamPackageFacade extends Facade
+class LaravelApplicationManagerFacade extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -16,6 +16,6 @@ class LamPackageFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'lam-package';
+        return 'lam';
     }
 }

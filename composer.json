@@ -1,6 +1,6 @@
 {
-    "name": "dsginnosource/lam-package",
-    "description": "The package component to the Laravel Application Manager",
+    "name": "innosource/laravel-application-manager",
+    "description": "The Laravel Application Manager client",
     "keywords": [
         "dsginnosource",
         "lam-package"
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Dsginnosource\\LamPackage\\": "src"
+            "InnoSource\\LaravelApplicationManager\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Dsginnosource\\LamPackage\\Tests\\": "tests"
+            "InnoSource\\LaravelApplicationManager\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -43,10 +43,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Dsginnosource\\LamPackage\\LamPackageServiceProvider"
+                "InnoSource\\LaravelApplicationManager\\LaravelApplicationManagerServiceProvider"
             ],
             "aliases": {
-                "LamPackage": "Dsginnosource\\LamPackage\\LamPackageFacade"
+                "LaravelApplicationManager": "InnoSource\\LaravelApplicationManager\\LaravelApplicationManagerFacade"
             }
         }
     }

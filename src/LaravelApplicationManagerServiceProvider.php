@@ -1,11 +1,11 @@
 <?php
 
-namespace Dsginnosource\LamPackage;
+namespace InnoSource\LaravelApplicationManager;
 
-use Dsginnosource\LamPackage\Console\Commands\ReportToLam;
 use Illuminate\Support\ServiceProvider;
+use InnoSource\LaravelApplicationManager\Console\Commands\SendReport;
 
-class LamPackageServiceProvider extends ServiceProvider
+class LaravelApplicationManagerServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -15,8 +15,8 @@ class LamPackageServiceProvider extends ServiceProvider
         /*
          * Optional methods to load your package assets
          */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'lam-package');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'lam-package');
+        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'lam');
+        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'lam');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
@@ -27,22 +27,22 @@ class LamPackageServiceProvider extends ServiceProvider
 
             // Publishing the views.
             /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/lam-package'),
+                __DIR__.'/../resources/views' => resource_path('views/vendor/lam'),
             ], 'views');*/
 
             // Publishing assets.
             /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/lam-package'),
+                __DIR__.'/../resources/assets' => public_path('vendor/lam'),
             ], 'assets');*/
 
             // Publishing the translation files.
             /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/lam-package'),
+                __DIR__.'/../resources/lang' => resource_path('lang/vendor/lam'),
             ], 'lang');*/
 
             // Registering package commands.
             $this->commands([
-                ReportToLam::class,
+                SendReport::class,
             ]);
         }
     }
@@ -56,8 +56,8 @@ class LamPackageServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'lam');
 
         // Register the main class to use with the facade
-        $this->app->singleton('lam-package', function () {
-            return new LamPackage;
+        $this->app->singleton('lam', function () {
+            return new LaravelApplicationManager;
         });
     }
 }

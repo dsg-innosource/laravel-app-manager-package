@@ -1,13 +1,13 @@
 <?php
 
-namespace Dsginnosource\LamPackage\Console\Commands;
+namespace InnoSource\LaravelApplicationManager\Console\Commands;
 
-use Dsginnosource\LamPackage\Composer;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use InnoSource\LaravelApplicationManager\Composer;
 
-class ReportToLam extends Command
+class SendReport extends Command
 {
     /**
      * The name and signature of the console command.
@@ -98,7 +98,7 @@ class ReportToLam extends Command
         $this->line('LAM: Collecting details');
 
         return [
-            'composer_versions' => Composer::versions(),
+            'composer_versions' => $this->getComposerVersions(),
             'php_version' => phpversion(),
             'database_version' => $this->getMySQLVersion(),
             'config' => json_encode($this->getConfig()),
@@ -130,6 +130,16 @@ class ReportToLam extends Command
             ],
             'custom' => config('lam.custom'),
         ];
+    }
+
+    public function getComposerVersions()
+    {
+        $all = Composer::versions();
+        $required = Composer::required();
+
+        return collect($all)->filter(function ($version, $package) use ($required) {
+            return isset($required[$package]);
+        })->toArray();
     }
 
     public function addLamUuidToDotEnv($uuid)
