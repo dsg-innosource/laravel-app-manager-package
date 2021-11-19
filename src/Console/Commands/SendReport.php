@@ -100,9 +100,23 @@ class SendReport extends Command
         return [
             'composer_versions' => $this->getComposerVersions(),
             'php_version' => phpversion(),
-            'database_version' => $this->getMySQLVersion(),
+            'database_version' => $this->getDatabaseVersion(),
             'config' => json_encode($this->getConfig()),
         ];
+    }
+
+    public function getDatabaseVersion()
+    {
+        try {
+            if (config('database.default') == 'mysql') {
+                return $this->getMySQLVersion();
+            } else {
+                return 'Not Supported';
+            }
+        } catch (\Exception $e) {
+            logger()->error($e);
+            return 'ERR';
+        }
     }
 
     public function getMySQLVersion()
