@@ -128,6 +128,13 @@ class SendReport extends Command
                 'default' => config('mail.default'),
                 'host' => config('mail.mailers.' . config('mail.default') . '.host'),
             ],
+            'os' => [
+                'name' => php_uname('s'),
+                'host' => php_uname('n'),
+                'release' => php_uname('r'),
+                'version' => php_uname('v'),
+                'machine' => php_uname('m'),
+            ],
             'custom' => config('lam.custom'),
         ];
     }

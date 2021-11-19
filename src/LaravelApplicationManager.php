@@ -4,5 +4,8 @@ namespace InnoSource\LaravelApplicationManager;
 
 class LaravelApplicationManager
 {
-    // Build your next great package.
+    public static function setCustomData($callback)
+    {
+        config(['lam.custom' => $callback()]);
+    }
 }

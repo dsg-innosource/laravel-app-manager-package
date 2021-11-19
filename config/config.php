@@ -6,7 +6,4 @@
 return [
     'base_url' => env('LAM_URL'),
     'uuid' => env('LAM_UUID', ''),
-    'custom' => [
-        // Add your custom config info here
-    ],
 ];
